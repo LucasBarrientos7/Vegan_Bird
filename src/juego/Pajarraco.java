@@ -23,13 +23,13 @@ public class Pajarraco {
 	Pajarraco(int  x, int y){
 		this.x=x;
 		this.y=y;
-		this.pajaro=Herramientas.cargarImagen("bird(1).png");	
+		this.pajaro=Herramientas.cargarImagen("bird.png");	
 	}
 	
 	// METODOS:
 	
-	/** Utiliza un for para disminuir la elevación del pájaro en el eje y, para 
-	 * que de esta manera se tenga un mejor control en el manejo del pájaro. 
+	/** Utiliza un for para disminuir la elevaciï¿½n del pï¿½jaro en el eje y, para 
+	 * que de esta manera se tenga un mejor control en el manejo del pï¿½jaro. 
 	 * 
 	 */
 	void volar(){
@@ -38,7 +38,7 @@ public class Pajarraco {
 	}
 	
 	
-	/** Disminuye la posición del pájaro en pantalla constantemente. 
+	/** Disminuye la posiciï¿½n del pï¿½jaro en pantalla constantemente. 
 	 * 
 	 */
 	void caer() {
@@ -46,15 +46,15 @@ public class Pajarraco {
 	}
 	
 	
-	/** Se encarga de dibujar en pantalla la imagen del pájaro. 
+	/** Se encarga de dibujar en pantalla la imagen del pï¿½jaro. 
 	 * 
 	 */
 	void imprimir(Entorno e) {
-		e.dibujarImagen(pajaro, x, y, 0, 0.10);
+		e.dibujarImagen(pajaro, x, y, 0, 0.20);
 	}
 	
 	
-	/** Este método realiza la creación de un objeto tipo disparo. 
+	/** Este mï¿½todo realiza la creaciï¿½n de un objeto tipo disparo. 
 	 * 
 	 */
 	public Disparo disparar() {

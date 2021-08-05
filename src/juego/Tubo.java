@@ -23,12 +23,12 @@ public class Tubo {
 	Tubo(double x,double y){
 		this.x=x;
 		this.y=y;
-		this.tubo=entorno.Herramientas.cargarImagen("tubo.png");
+		this.tubo=entorno.Herramientas.cargarImagen("tube.png");
 	}
 	
-	// MÉTODOS:
+	// Mï¿½TODOS:
 	
-	/** Este método se encarga de disminuir la x de la imagen del tubo, dando una sensación 
+	/** Este mï¿½todo se encarga de disminuir la x de la imagen del tubo, dando una sensaciï¿½n 
 	 * de movimiento desde la derecha de la pantalla a la izquierda de la misma. 
 	 * 
 	 */
@@ -37,7 +37,7 @@ public class Tubo {
 	}
 	
 	
-	/** Este método consiste en graficar los tubos en la parte superior de la pantalla. 
+	/** Este mï¿½todo consiste en graficar los tubos en la parte superior de la pantalla. 
 	 * 
 	 */
 	void imprimirSuperior(Entorno e) {
@@ -45,7 +45,7 @@ public class Tubo {
 	}
 	
 	
-	/** Este método consiste en graficar los tubos en la parte inferior de la pantalla 
+	/** Este mï¿½todo consiste en graficar los tubos en la parte inferior de la pantalla 
 	 * 
 	 */
 	void imprimirInferior(Entorno e) {

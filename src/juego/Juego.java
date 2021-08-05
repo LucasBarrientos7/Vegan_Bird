@@ -32,7 +32,7 @@ public class Juego extends InterfaceJuego
 	Juego() {
 		// Inicializa el objeto entorno:
 		//
-		this.entorno = new Entorno(this, "Vegan Bird - Grupo Altamirano - Barrientos -Carrillo - V0.01", 900, 600);
+		this.entorno = new Entorno(this, "Vegan Bird", 900, 600);
 		
 		// Inicializar lo que haga falta para el juego:
 		//
@@ -309,8 +309,8 @@ public class Juego extends InterfaceJuego
 		
 		// Fondo:
 		//
-		this.fondo=Herramientas.cargarImagen("fondo.png");
-		this.fondo2=Herramientas.cargarImagen("fondoNoche.jpg");
+		this.fondo=Herramientas.cargarImagen("background.png");
+		this.fondo2=Herramientas.cargarImagen("background2.png");
 		this.piso=Herramientas.cargarImagen("piso.png");
 		
 		//pajaro:
