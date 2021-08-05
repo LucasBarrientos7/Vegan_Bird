@@ -1,7 +1,7 @@
 # Vegan_Bird
 Flappy Bird style game, made entirely in Java.
 
-![image](https://user-images.githubusercontent.com/77767010/127941603-9170379f-64c3-43fa-a60c-95db56e2eca7.png)
+![vb](https://user-images.githubusercontent.com/77767010/128431431-a4c94977-154f-4755-9b58-a82644aeeed3.jpeg)
 
 A bird (from a planet where birds shoot through their mouths) must avoid obstacles to feed but only on vegetables.
 
