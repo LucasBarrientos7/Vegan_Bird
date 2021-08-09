@@ -73,7 +73,7 @@ public class Juego extends InterfaceJuego
 			
 			// Se escribe en pantalla "GAME OVER" si el usuario perdió:
 			//
-			this.entorno.cambiarFont("Showcard Gothic", 50, Color.WHITE);
+			this.entorno.cambiarFont("Showcard Gothic", 50, Color.RED);
 			this.entorno.escribirTexto("GAME OVER", 300, 100);
 			
 			// Se muestra en pantalla el puntaje actual de la partida que se esta ejecutando:
@@ -132,7 +132,7 @@ public class Juego extends InterfaceJuego
 				// Mover tubos superiores
 				//
 				if(this.time>900 && this.time<1000) {
-					this.entorno.cambiarFont("Showcard Gothic", 100, Color.WHITE);
+					this.entorno.cambiarFont("Showcard Gothic", 100, Color.RED);
 					this.entorno.escribirTexto("LEVEL 2", 300, 200);
 				}
 				
@@ -206,7 +206,7 @@ public class Juego extends InterfaceJuego
 			
 			// Muestra el puntaje en pantalla:
 			//
-			this.entorno.cambiarFont("Showcard Gothic",30, Color.WHITE);
+			this.entorno.cambiarFont("Showcard Gothic",30, Color.RED);
 			String puntaje= String.valueOf(this.puntaje);
 			this.entorno.escribirTexto("Score:"+puntaje,700 , 50);
 			
