@@ -6,8 +6,8 @@ Flappy Bird style game, made entirely in Java.
 A bird (from a planet where birds shoot through their mouths) must avoid obstacles to feed but only on vegetables.
 
 Bird Actions:
-Bird flight -> Only the directional key "up"
-Shot -> space bar
+- Bird flight -> Only the directional key "up"
+- Shot -> space bar
 
 Game rules:
 - The bird only maintains its height in flight with the "up" key, otherwise it will hit the ground.
