@@ -27,19 +27,14 @@ public class Juego extends InterfaceJuego
 	Clip MUSICA;
 	Disparo disparo[];
 	
-	
-	
 	Juego() {
 		// Inicializa el objeto entorno:
-		//
 		this.entorno = new Entorno(this, "Vegan Bird", 900, 600);
 		
 		// Inicializar lo que haga falta para el juego:
-		//
         this.inicializarTodo();
         
 		// Inicia el juego!
-        //
 		this.entorno.iniciar();
 			
 	}
@@ -54,39 +49,31 @@ public class Juego extends InterfaceJuego
 	 */
 	
 	// Procesamiento de un instante de tiempo:
-	//
 	public void tick() {   
 		
 		//si juegador coliciona con algo que no sea un alimento entra a este if:
-		//
 		if(colisionBordes()==true || colicionTubo==true) {
 			
 			// Detiene la musica:
-			//
 			this.MUSICA.stop();
 			 
 			// A partir de un determinado tiempo, se pasa al nivel 2 del juego y se  
 			// en pantalla otro fondo:
-			//
 			if(this.time>1000)this.entorno.dibujarImagen(fondo2, 450, 300, 0);
 			else this.entorno.dibujarImagen(fondo, 450, 300, 0);
 			
 			// Se escribe en pantalla "GAME OVER" si el usuario perdió:
-			//
 			this.entorno.cambiarFont("Showcard Gothic", 50, Color.RED);
 			this.entorno.escribirTexto("GAME OVER", 300, 100);
 			
 			// Se muestra en pantalla el puntaje actual de la partida que se esta ejecutando:
-			//
 			String puntaje= String.valueOf(this.puntaje);
 			this.entorno.escribirTexto("SCORE: "+puntaje,300 ,200);
 			
 			// Se escribe en pantalla la posibilidad de comenzar una nueva partida:
-			//
 			this.entorno.escribirTexto("CONTINUE ENTER",300 ,300);
 			
 			//Reinicia todas la varibles de instancia de el juego:
-			//
 			if(this.entorno.sePresiono(this.entorno.TECLA_ENTER)) {
 				this.inicializarTodo();
 			}
@@ -95,42 +82,34 @@ public class Juego extends InterfaceJuego
 		
 		
 		//Recorrido comun del juego:
-		//
 		else {
 			
 			// Inicia el tiempo:
-			//
 			this.time++;
 			
 			// Se dibuja el Fondo del juego:
-			//
 			this.entorno.dibujarImagen(fondo, 450, 300, 0);
 			if(this.time>1000) {
 				this.entorno.dibujarImagen(fondo2, 450, 300, 0);
 			}
 			
 			// Inicializa la Musica:
-			//
 			this.MUSICA.loop(1);
 			
-			// Dibuja en pantalla al Pajarraco y :
-			//
+			// Dibuja en pantalla al Pajarraco:
 			this.pajarraco.imprimir(this.entorno);
 			if(this.entorno.estaPresionada(this.entorno.TECLA_ARRIBA))this.pajarraco.volar();
 			else this.pajarraco.caer();
 			
 			// Tubo y alimento:
-			//
 			for(int i = 0; i < this.tubosSuperiores.length; i++)
 			{	
 			
-				// Imprimir tubos
-				//
+				// Imprimir tubos:
 				this.tubosSuperiores[i].imprimirSuperior(this.entorno);
 				this.tubosInferiores[i].imprimirInferior(this.entorno);
 				
-				// Mover tubos superiores
-				//
+				// Mover tubos superiores:
 				if(this.time>900 && this.time<1000) {
 					this.entorno.cambiarFont("Showcard Gothic", 100, Color.RED);
 					this.entorno.escribirTexto("LEVEL 2", 300, 200);
@@ -143,39 +122,33 @@ public class Juego extends InterfaceJuego
 				this.tubosSuperiores[i].moverIzquierda();
 				this.tubosSuperiores[i].aparecerDeNuevoSuperior();
 		
-				// Mover tubos inferiores
-				//
+				// Mover tubos inferiores:
 				this.tubosInferiores[i].moverIzquierda();
 				this.tubosInferiores[i].aparecerDeNuevoInferior(this.tubosSuperiores[i]);
 				
-				// Verificamos si el pajaro coliciona con un tubo
-				//
+				// Verificamos si el pajaro coliciona con un tubo:
 				if(colisionConTubo(this.tubosSuperiores[i]) || colisionConTubo(this.tubosInferiores[i]))
 				{	
 					this.colicionTubo=true;
 				}
 				
-				// Alimento
-				//
+				// Alimento:
 				if (this.alimento[i]!=null) {
 					this.alimento[i].imprimirse(this.entorno);
 					this.alimento[i].moverIzquierda();
 					this.alimento[i].aparecerDeNuevo(tubosSuperiores[i]);
 				
-					// Puntos
-					//
+					// Puntos:
 					puntos(this.alimento[i]);
 				
-					// Pregunta si el pajaro colisiona con las verduras:  
-					//
+					// Pregunta si el pajaro colisiona con las verduras:
 					if(colisionVerdura(this.alimento[i])==true ) {
-					//si el pajaro come una la verdura sale de la pantalla
+					// Si el pajaro come una la verdura sale de la pantalla
 					this.alimento[i]=null;
 					
 				
 					}
 					// Colisión disparo-hamburguesa
-					//
 					for(int j=0;j<this.disparo.length;j++) {
 						if(this.disparo[j]!=null && this.alimento[i]!=null) {
 							if((colisionDisparoHamburguesa(this.alimento[i],this.disparo[j])) && this.alimento[i].getNombreAlimento().equals("hamburguesa.png")) {
@@ -192,7 +165,6 @@ public class Juego extends InterfaceJuego
 			}
 			
 			// Verificamos que si alguna verdura esta en null:
-			//
 			for(int i=0;i<this.alimento.length;i++) {
 				if(this.alimento[i]==null && this.tubosSuperiores[i].getX()>=850) {
 					this.alimento[i]=new Alimento(this.tubosSuperiores[i].getX()+100,300,"brocoli.png");
@@ -200,37 +172,31 @@ public class Juego extends InterfaceJuego
 					this.alimento[i].cambiarAlimento();
 				}
 			}	
-			// Piso
-			//
+			// Piso:
 			this.entorno.dibujarImagen(piso, 450, 600, 0);
 			
 			// Muestra el puntaje en pantalla:
-			//
 			this.entorno.cambiarFont("Showcard Gothic",30, Color.RED);
 			String puntaje= String.valueOf(this.puntaje);
 			this.entorno.escribirTexto("Score:"+puntaje,700 , 50);
 			
 			// Muestra la cantidad tiros:
-			//
 			String contDisparo= String.valueOf(3-this.cantDisparo());
 			this.entorno.escribirTexto("Shots:"+contDisparo,10 , 50);
 			
 			// Disparo:
-			//
 			if(this.entorno.sePresiono(this.entorno.TECLA_ESPACIO )&& this.cantDisparo()<=2) {
 					this.disparo[this.cantDisparo()]=this.pajarraco.disparar();
 					System.out.println("incremento"+ this.cantDisparo());
 			}
 			
 			// Si el disparo llega al limite de la pantalla, el disparo desaparece
-			//
 			for(int i = 0;i < this.disparo.length;i++){
 				if(this.disparo[i]!=null && this.disparo[i].getX()>=900 ) {
 					this.disparo[i]=null;	
 				}
 				
-				// Si se ejecuta el disparo, este se mueve hasta el limite de la pantalla
-				//
+				// Si se ejecuta el disparo, este se mueve hasta el limite de la pantalla:
 				if(disparo[i]!=null) {
 					this.disparo[i].imprimir(this.entorno);
 					this.disparo[i].moverse();
@@ -244,7 +210,7 @@ public class Juego extends InterfaceJuego
 
 	// Nos dice si el pajaro y un alimento colicionan:
 	//
-		boolean colisionVerdura(Alimento verdura) {
+	boolean colisionVerdura(Alimento verdura) {
 					//me dice si el pajaro come una verdura
 			return  this.pajarraco.getX()+20>=verdura.getX()-20 &&
 					this.pajarraco.getX()-20<=verdura.getX()+20 &&
@@ -320,20 +286,6 @@ public class Juego extends InterfaceJuego
         //inicializacion de alimento:
         //
         this.alimento=new Alimento[3];
-
-//        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-       
         this.disparo= new Disparo[3];
         
         // Tubo:
@@ -361,9 +313,7 @@ public class Juego extends InterfaceJuego
            
 	}
 	
-	
-	// Cuenta la cantidad de disparos utilizados:
-	//
+	/*  Cuenta la cantidad de disparos utilizados: */
 	int cantDisparo() {
 		int cant=0;
 		for(int i=0;i<this.disparo.length;i++) {
